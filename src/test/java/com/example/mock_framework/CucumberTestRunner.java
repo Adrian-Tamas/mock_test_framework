@@ -13,7 +13,7 @@ import org.testng.annotations.DataProvider;
                 "pretty"
         }
 )
-public class CucumberRunner extends AbstractTestNGCucumberTests {
+public class CucumberTestRunner extends AbstractTestNGCucumberTests {
 
     @Override
     @DataProvider(parallel = true)

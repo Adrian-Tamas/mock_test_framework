@@ -1,4 +1,4 @@
-Feature: User visa registration feature
+Feature: Mock tests to show the framework run
 
   @mocks
   Scenario: Run some mock tests
@@ -7,7 +7,7 @@ Feature: User visa registration feature
     Then I see that the test is passing
 
   @mocks
-  Scenario: Run some mock tests
+  Scenario: Run more mock tests
     Given I want to run a second test
     When I run the test
     Then I see that the test is passing
