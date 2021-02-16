@@ -10,7 +10,8 @@ import org.testng.annotations.DataProvider;
         glue = "com.example.mock_framework.bdd",
         tags = { "@mocks" },
         plugin = {
-                "pretty"
+                "pretty",
+                "json:target/report/cucumber2.json"
         }
 )
 public class CucumberTestRunner extends AbstractTestNGCucumberTests {
