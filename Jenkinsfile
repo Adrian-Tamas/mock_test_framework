@@ -7,11 +7,11 @@ pipeline {
                 sh 'mvn clean test'
             }
         }
-        
+
         stage('Generate HTML report') {
             cucumber buildStatus: 'UNSTABLE',
                     reportTitle: 'My report',
-                    fileIncludePattern: '**/*.json',
-            }
+                    fileIncludePattern: '**/*.json'
+        }
     }
 }
