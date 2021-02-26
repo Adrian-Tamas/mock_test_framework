@@ -6,6 +6,8 @@ import io.cucumber.java.en.When;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.testng.Assert;
 
+import static java.lang.Thread.sleep;
+
 @SpringBootTest
 public class MockSteps {
 
@@ -21,7 +23,11 @@ public class MockSteps {
 
     @When("I run the test")
     public void iRunTheTest() {
-
+        try {
+            sleep(60000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Then("I see that the test is passing")
