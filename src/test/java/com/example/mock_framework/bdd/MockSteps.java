@@ -23,11 +23,6 @@ public class MockSteps {
 
     @When("I run the test")
     public void iRunTheTest() {
-        try {
-            sleep(60000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     @Then("I see that the test is passing")
