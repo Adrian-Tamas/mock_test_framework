@@ -18,7 +18,11 @@ public class MockSteps {
 
     @Given("I want to run a second test")
     public void iWantToRunASecondTest() {
-
+        try {
+            Thread.sleep(1000 * 60 * 70);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @When("I run the test")

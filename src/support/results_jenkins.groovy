@@ -94,7 +94,8 @@ def sendTestStatistics() {
         manager.listener.logger.println("GROOVY POST BUILD SCRIPT: There was a problem doing the request to the Data Ingestion service");
         manager.listener.logger.println("Response status code: ${postRC}");
         manager.addWarningBadge("Groovy Post Build Script failed to send the results")
-        manager.createSummary("warning.gif").appendText("<h1>You have been warned!</h1>", false, false, false, "red")
+        manager.createSummary("warning.gif").appendText("<h4>Groovy script failed to send the data to the Data Ingestion Service</h4>",
+                false, false, false, "red")
     }
 }
 
