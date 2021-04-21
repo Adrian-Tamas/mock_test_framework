@@ -20,7 +20,7 @@ pipeline {
 
         stage('Send results to the Data ingestion service') {
             steps {
-                def sendTestStatistics() {
+                script {
                     def ingestion_service_url = "http://localhost:9090/results"
 
                     // Test execution constants
@@ -42,12 +42,12 @@ pipeline {
                     // For minutes: Total time:  01:14 min
                     // For seconds: Total time:  16.311 s
                     def matcher = manager.getLogMatcher(".*Total time: (.*)\$")
-                    if(matcher?.matches()) {
+                    if (matcher?.matches()) {
                         total_time = matcher.group(1)
                     }
 
                     def matcher2 = manager.getLogMatcher(".*Finished at: (.*)\$")
-                    if(matcher2?.matches()) {
+                    if (matcher2?.matches()) {
                         execution_end_time = matcher2.group(1)
                     }
 
@@ -75,7 +75,7 @@ pipeline {
                     post.setRequestProperty("Content-Type", "application/json")
                     post.getOutputStream().write(message.getBytes("UTF-8"));
                     def postRC = post.getResponseCode();
-                    if(!postRC.equals(200)) {
+                    if (!postRC.equals(200)) {
                         manager.listener.logger.println("GROOVY POST BUILD SCRIPT: There was a problem doing the request to the Data Ingestion service");
                         manager.listener.logger.println("Response status code: ${postRC}");
                         manager.addWarningBadge("Groovy Post Build Script failed to send the results")
@@ -83,8 +83,6 @@ pipeline {
                                 false, false, false, "red")
                     }
                 }
-
-                sendTestStatistics()
             }
         }
     }
