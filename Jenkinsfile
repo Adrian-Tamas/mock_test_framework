@@ -21,7 +21,7 @@ pipeline {
         stage('Send results to the Data ingestion service') {
             steps {
                 script {
-                    testStatisctics()
+                    testStatistics()
                 }
             }
         }
