@@ -28,7 +28,7 @@ pipeline {
     }
 }
 
-@NoSCP
+@NonCPS
 def testStatistics() {
     def ingestion_service_url = "http://localhost:9090/results"
 
