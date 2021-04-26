@@ -34,6 +34,7 @@ import hudson.tasks.test.AbstractTestResultAction
 def test() {
     def testStatus = ""
     AbstractTestResultAction testResultAction = currentBuild.rawBuild.getAction(AbstractTestResultAction.class)
+    echo "Test results Action: " + testResultAction
     if (testResultAction != null) {
         echo "======================================="
         echo "Test results here"
