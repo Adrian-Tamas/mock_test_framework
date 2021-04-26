@@ -21,12 +21,18 @@ pipeline {
         stage('Send results to the Data ingestion service') {
             steps {
                 script {
-                    testStatistics()
+                    test()
                 }
             }
         }
     }
 }
+
+@NonCPS
+def test() {
+    echo junitTestResultStorage
+}
+
 
 @NonCPS
 def testStatistics() {
