@@ -30,7 +30,9 @@ pipeline {
 
 @NonCPS
 def test() {
-    echo currentBuild
+    echo currentBuild.getCurrentResult()
+    echo currentBuild.getDuration()
+    echo currentBuild.getResult()
 }
 
 
