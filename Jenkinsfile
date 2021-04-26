@@ -41,7 +41,9 @@ def test() {
         def passed = total - failed - skipped
         testStatus = "Test Status:\n  Passed: ${passed}, Failed: ${failed} ${testResultAction.failureDiffString}, Skipped: ${skipped}"
     }
+    echo "======================================="
     echo testStatus
+    echo "======================================="
 }
 
 
