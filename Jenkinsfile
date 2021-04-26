@@ -28,25 +28,11 @@ pipeline {
     }
 }
 
-import hudson.tasks.test.AbstractTestResultAction
-
 @NonCPS
 def test() {
-    def testStatus = ""
-    AbstractTestResultAction testResultAction = currentBuild.rawBuild.getAction(AbstractTestResultAction.class)
-    echo "Test results Action: " + testResultAction
-    if (testResultAction != null) {
-        echo "======================================="
-        echo "Test results here"
-        echo "======================================="
-        def total = testResultAction.totalCount
-        def failed = testResultAction.failCount
-        def skipped = testResultAction.skipCount
-        def passed = total - failed - skipped
-        testStatus = "Test Status:\n  Passed: ${passed}, Failed: ${failed} ${testResultAction.failureDiffString}, Skipped: ${skipped}"
-    }
     echo "======================================="
-    echo testStatus
+    def summary = junit testResults: '/target/*-reports/TEST-*.xml'
+    echo summary
     echo "======================================="
 }
 
