@@ -54,16 +54,16 @@ def testResults() {
     // build the statistics payload
     def builder = new groovy.json.JsonBuilder()
     def test_statistics = builder {
-        "application" app_name
-        "bu" bu_name
-        "region" region_name
-        "executionType" execution_type
-        "numberOfFeatureFiles" 0
-        "numberOfScenarios" total_tests
-        "numberOfPasses" passed_count
-        "numberOfFailures" failed_count
-        "executionEndTime" execution_end_time
-        "executionDuration" total_time
+        'application' app_name
+        'bu' bu_name
+        'region' region_name
+        'executionType' execution_type
+        'numberOfFeatureFiles' 0
+        'numberOfScenarios' total_tests
+        'numberOfPasses' passed_count
+        'numberOfFailures' failed_count
+        'executionEndTime' execution_end_time
+        'executionDuration' total_time
     }
 
     echo "json: ${builder.toString()}"
