@@ -36,7 +36,7 @@ def testResults() {
 @NonCPS
 def test(summary) {
     echo "======================================="
-    echo summary
+    echo "\n *Test Summary* - ${summary.totalCount}, Failures: ${summary.failCount}, Skipped: ${summary.skipCount}, Passed: ${summary.passCount}"
     echo "======================================="
 }
 
