@@ -7,6 +7,7 @@ pipeline {
         stage('Test') {
             steps {
                 bat 'mvn clean test'
+                test()
             }
         }
 
@@ -30,9 +31,11 @@ pipeline {
 
 @NonCPS
 def test() {
+    echo '========================================================='
     echo 'Current Result: ' + currentBuild.getCurrentResult()
     echo 'Duration: '+ currentBuild.getDuration()
     echo 'Results: ' + currentBuild.getResult()
+    echo '========================================================='
 }
 
 
