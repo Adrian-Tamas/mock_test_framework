@@ -7,7 +7,6 @@ pipeline {
         stage('Test') {
             steps {
                 bat 'mvn clean test'
-                test()
             }
         }
 
@@ -29,13 +28,20 @@ pipeline {
     }
 }
 
+import hudson.tasks.test.AbstractTestResultAction
+
 @NonCPS
 def test() {
-    echo '========================================================='
-    echo 'Current Result: ' + currentBuild.getCurrentResult()
-    echo 'Duration: '+ currentBuild.getDuration()
-    echo 'Results: ' + currentBuild.getResult()
-    echo '========================================================='
+    def testStatus = ""
+    AbstractTestResultAction testResultAction = currentBuild.rawBuild.getAction(AbstractTestResultAction.class)
+    if (testResultAction != null) {
+        def total = testResultAction.totalCount
+        def failed = testResultAction.failCount
+        def skipped = testResultAction.skipCount
+        def passed = total - failed - skipped
+        testStatus = "Test Status:\n  Passed: ${passed}, Failed: ${failed} ${testResultAction.failureDiffString}, Skipped: ${skipped}"
+    }
+    echo testStatus
 }
 
 
