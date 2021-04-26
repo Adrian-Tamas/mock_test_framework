@@ -30,6 +30,11 @@ pipeline {
 
 def testResults() {
     def summary = junit testResults: '/target/*-reports/TEST-*.xml'
+    test(summary)
+}
+
+@NonCPS
+def test(summary) {
     def ingestion_service_url = "http://localhost:9090/results"
 
     // Test execution constants
@@ -75,12 +80,6 @@ def testResults() {
     post.setRequestProperty("Content-Type", "application/json")
     post.getOutputStream().write(message.getBytes("UTF-8"));
     def postRC = post.getResponseCode();
-}
-
-def test(summary) {
-    echo "======================================="
-    echo "\n *Test Summary* - ${summary.totalCount}, Failures: ${summary.failCount}, Skipped: ${summary.skipCount}, Passed: ${summary.passCount}"
-    echo "======================================="
 }
 
 
