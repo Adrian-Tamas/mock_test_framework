@@ -21,17 +21,21 @@ pipeline {
         stage('Send results to the Data ingestion service') {
             steps {
                 script {
-                    test()
+                    testResults()
                 }
             }
         }
     }
 }
 
-@NonCPS
-def test() {
-    echo "======================================="
+def testResults() {
     def summary = junit testResults: '/target/*-reports/TEST-*.xml'
+    test(summary)
+}
+
+@NonCPS
+def test(summary) {
+    echo "======================================="
     echo summary
     echo "======================================="
 }
