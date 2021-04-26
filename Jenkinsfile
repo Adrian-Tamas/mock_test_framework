@@ -35,6 +35,9 @@ def test() {
     def testStatus = ""
     AbstractTestResultAction testResultAction = currentBuild.rawBuild.getAction(AbstractTestResultAction.class)
     if (testResultAction != null) {
+        echo "======================================="
+        echo "Test results here"
+        echo "======================================="
         def total = testResultAction.totalCount
         def failed = testResultAction.failCount
         def skipped = testResultAction.skipCount
