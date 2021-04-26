@@ -30,7 +30,7 @@ pipeline {
 
 @NonCPS
 def test() {
-    echo junitTestResultStorage
+    junitTestResultStorage
 }
 
 
