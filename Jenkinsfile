@@ -59,7 +59,7 @@ def test(summary) {
     echo 'Duration: '+ total_time
 
     def start_time = currentBuild.getStartTimeInMillis()
-    def date = new Date(start_time)
+    def date = new Date(start_time).format("yyyy-MM-dd'T'HH:mm:ssXXX")
     echo 'Start Time ' + date
 
     // build the statistics payload
