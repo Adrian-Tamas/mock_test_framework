@@ -73,7 +73,7 @@ def test(summary) {
         'numberOfScenarios' total_tests
         'numberOfPasses' passed_count
         'numberOfFailures' failed_count
-        'executionEndTime' execution_end_time
+        'executionEndTime' date
         'executionDuration' total_time
     }
 
