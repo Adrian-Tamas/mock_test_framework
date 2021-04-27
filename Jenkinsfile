@@ -58,7 +58,7 @@ def test(summary) {
     total_time = "${duration}:00 min"
     echo 'Duration: '+ total_time
 
-    def start_time = getStartTimeInMillis()
+    def start_time = currentBuild.getStartTimeInMillis()
     echo 'Start Time' + start_time
 
     // build the statistics payload
