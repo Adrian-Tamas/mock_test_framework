@@ -54,7 +54,8 @@ def test(summary) {
     // For hours:  Total time:  01:10 h
     // For minutes: Total time:  01:14 min
     // For seconds: Total time:  16.311 s
-    def duration = (int)(currentBuild.getDuration() / 600)
+    echo 'Unmodified duration: ' + currentBuild.getDuration()
+    def duration = (int)(currentBuild.getDuration() / 60000)
     total_time = "${duration}:00 min"
     echo 'Duration: '+ total_time
 
