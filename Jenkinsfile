@@ -59,7 +59,8 @@ def test(summary) {
     echo 'Duration: '+ total_time
 
     def start_time = currentBuild.getStartTimeInMillis()
-    echo 'Start Time' + start_time
+    def date = new Date(start_time)
+    echo 'Start Time ' + date
 
     // build the statistics payload
     def builder = new groovy.json.JsonBuilder()
